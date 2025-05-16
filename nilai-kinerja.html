@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro Manage - Nilai Kinerja Proyek</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Custom table styling */
+    .table-responsive {
+      border-radius: 0.25rem;
+      overflow: hidden;
+    }
+
+    .table thead th {
+      background-color: #77b5fb;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="logo-container">
+      <i class="fas fa-cube" aria-hidden="true"></i>
+      <span class="logo-text">Pro Manage</span>
+    </header>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="ranking&bonus.html" class="nav-link">
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            <span>Ranking & Bonus</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link spk-toggle active" aria-expanded="true" aria-controls="spk-submenu">
+            <i class="fas fa-list-alt" aria-hidden="true"></i>
+            <span>SPK</span>
+            <i class="fas fa-chevron-up ms-auto rotate-icon" id="spk-icon" aria-hidden="true"></i>
+          </button>
+          <ul class="sub-menu show" id="spk-submenu">
+            <li>
+              <a href="nilai-kinerja.html" class="active">Nilai Kinerja Proyek</a>
+            </li>
+            <li><a href="hasil-akhir.html">Hasil Akhir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="data-karyawan-akses-login.html" class="nav-link">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span>Data Karyawan</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="panduan-poin.html" class="nav-link">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            <span>Panduan Poin</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+      <div class="user-profile">
+        <div class="user-avatar">
+          <i class="fas fa-user" aria-hidden="true"></i>
+        </div>
+        <nav class="dropdown" aria-label="User Menu">
+          <div class="dropdown-trigger">
+            <span class="user-name">Admin</span>
+            <button class="dropdown-btn" aria-expanded="false" aria-label="Open user menu">
+              <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="dropdown-content" role="menu">
+            <a href="#profile" role="menuitem"><i class="fas fa-user-circle" aria-hidden="true"></i>
+              Profile</a>
+            <a href="login.html" role="menuitem"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+              Logout</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <section class="dashboard-content">
+        <div class="container-fluid p-4 bg-white rounded">
+          <!-- Header with Title -->
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="dashboard-title">Nilai Kinerja Proyek</h1>
+          </div>
+
+          <!-- Table Controls -->
+          <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+              <span>Tampilkan</span>
+              <select class="form-select mx-2" style="width: 70px">
+                <option selected>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+              </select>
+              <span>entri</span>
+            </div>
+          </div>
+
+          <div class="table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl"
+            style="overflow-x: auto;">
+            <table class="table mb-3" style="min-width: 100%;">
+              <thead class="table-header-blue">
+                <tr>
+                  <th class="text-center rounded-top-start rounded-bottom-start ">No</th>
+                  <th class="text-center">Nama</th>
+                  <th class="text-center">Posisi</th>
+                  <th class="text-center rounded-top-end rounded-bottom-end " style="min-width: 100px;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td class="text-center">Dihan</td>
+                  <td class="text-center">Web Developer</td>
+                  <td class="text-center">
+                    <a href="detail-nilai-kinerja.html" class="btn btn-sm btn-primary">Detail</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td class="text-center">Bogus</td>
+                  <td class="text-center">Desain Grafis</td>
+                  <td class="text-center">
+                    <a href="detail-nilai-kinerja.html" class="btn btn-sm btn-primary">Detail</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <!-- Pagination -->
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="text-muted">Menampilkan 1 sampai 2 dari 2 entri</div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary" disabled>
+                Sebelumnya
+              </button>
+              <button class="btn text-white" style="background-color: #77b5fb">
+                1
+              </button>
+              <button class="btn btn-outline-secondary">Selanjutnya</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/responsive.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panduan Poin - Admin Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="logo-container">
+      <i class="fas fa-cube" aria-hidden="true"></i>
+      <span class="logo-text">Pro Manage</span>
+    </header>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="ranking&bonus.html" class="nav-link">
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            <span>Ranking & Bonus</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link spk-toggle" aria-expanded="false" aria-controls="spk-submenu">
+            <i class="fas fa-list-alt" aria-hidden="true"></i>
+            <span>SPK</span>
+            <i class="fas fa-chevron-down ms-auto rotate-icon" id="spk-icon" aria-hidden="true"></i>
+          </button>
+          <ul class="sub-menu" id="spk-submenu">
+            <li><a href="nilai-kinerja.html">Nilai Kinerja Proyek</a></li>
+            <li><a href="hasil-akhir.html">Hasil Akhir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="data-karyawan-akses-login.html" class="nav-link">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span>Data Karyawan</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="panduan-poin.html" class="nav-link active">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            <span>Panduan Poin</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- Main Content -->
+  <header class="topbar">
+    <div class="user-profile">
+      <div class="user-avatar">
+        <i class="fas fa-user" aria-hidden="true"></i>
+      </div>
+      <nav class="dropdown" aria-label="User Menu">
+        <div class="dropdown-trigger">
+          <span class="user-name">Admin</span>
+          <button class="dropdown-btn" aria-expanded="false" aria-label="Open user menu">
+            <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="dropdown-content" role="menu">
+          <a href="#profile" role="menuitem"><i class="fas fa-user-circle" aria-hidden="true"></i>
+            Profile</a>
+          <a href="login.html" role="menuitem"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+            Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h4 class="mb-4">Panduan Poin</h4>
+    <div class="table-responsive dashboard-content">
+      <table class="table">
+        <thead class="text-center">
+          <tr>
+            <th class="text-start rounded-top-start rounded-bottom-start">Nama File</th>
+            <th width="150px " class="rounded-top-end rounded-bottom-end">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="list">
+          <tr>
+            <td>Bobot, Kriteria dan Skala Poin 2025</td>
+            <td class="text-center">
+              <button class="btn btn-view btn-sm me-1">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-upload btn-sm me-1">
+                <i class="fas fa-upload"></i>
+              </button>
+              <button class="btn text-white delete-btn btn-sm">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  </div>
+  <script src="js/script.js"></script>
+  <script src="js/responsive.js"></script>
+</body>
+
+</html>

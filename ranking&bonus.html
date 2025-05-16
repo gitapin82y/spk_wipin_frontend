@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro Manage - Ranking & Bonus</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Custom table header style */
+    .table-header-blue {
+      background-color: #77b5fb !important;
+    }
+
+    .table-header-blue th {
+      color: white !important;
+      background-color: transparent !important;
+      border-color: #77b5fb !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="logo-container">
+      <i class="fas fa-cube" aria-hidden="true"></i>
+      <span class="logo-text">Pro Manage</span>
+    </header>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="ranking&bonus.html" class="nav-link active">
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            <span>Ranking & Bonus</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link spk-toggle" aria-expanded="false" aria-controls="spk-submenu">
+            <i class="fas fa-list-alt" aria-hidden="true"></i>
+            <span>SPK</span>
+            <i class="fas fa-chevron-up ms-auto" id="spk-icon" aria-hidden="true"></i>
+          </button>
+          <ul class="sub-menu" id="spk-submenu">
+            <li><a href="nilai-kinerja.html">Nilai Kinerja Proyek</a></li>
+            <li><a href="hasil-akhir.html">Hasil Akhir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="data-karyawan-akses-login.html" class="nav-link">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span>Data Karyawan</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="panduan-poin.html" class="nav-link">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            <span>Panduan Poin</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+      <div class="user-profile">
+        <div class="user-avatar">
+          <i class="fas fa-user" aria-hidden="true"></i>
+        </div>
+        <nav class="dropdown" aria-label="User Menu">
+          <div class="dropdown-trigger">
+            <span class="user-name">Admin</span>
+            <button class="dropdown-btn" aria-expanded="false" aria-label="Open user menu">
+              <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="dropdown-content" role="menu">
+            <a href="#profile" role="menuitem"><i class="fas fa-user-circle" aria-hidden="true"></i>
+              Profile</a>
+            <a href="login.html" role="menuitem"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+              Logout</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <section class="dashboard-content">
+        <div class="container-fluid p-4 bg-white rounded">
+          <!-- Header with Title and Year Filter -->
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="dashboard-title">Ranking & Bonus</h1>
+            <div>
+              <button class="btn btn-outline-secondary dropdown-toggle px-3" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                2024
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">2024</a></li>
+                <li><a class="dropdown-item" href="#">2023</a></li>
+                <li><a class="dropdown-item" href="#">2022</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bonus Configuration -->
+          <div class="mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <label for="maxBonus" class="form-label mb-0 fw-bold">Nilai Maksimum Bonus :</label>
+              <div class="d-flex">
+                <input type="text" id="maxBonus" class="form-control" value="3.000.000" style="width: 150px" />
+                <button class="btn text-white ms-2" style="background-color: var(--color-primary)">
+                  Hitung
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table Controls -->
+          <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+              <span>Tampilkan</span>
+              <select class="form-select mx-2" style="width: 70px">
+                <option selected>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+              </select>
+              <span>entri</span>
+            </div>
+            <div>
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Urutkan Berdasarkan
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Nama</a></li>
+                <li><a class="dropdown-item" href="#">Skor Tertinggi</a></li>
+                <li><a class="dropdown-item" href="#">Bonus Tertinggi</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Table Content with Light Blue Header -->
+          <div class="table-responsive">
+            <table class="table mb-3">
+              <thead class="table-header-blue">
+                <tr>
+                  <th class="rounded-top-start rounded-bottom-start text-center">No</th>
+                  <th class="text-center">Karyawan</th>
+                  <th class="text-center ">Skor Akhir</th>
+                  <th class="text-center rounded-top-end rounded-bottom-end">Bonus Didapat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center ">1</td>
+                  <td class="text-center">Karyawan A</td>
+                  <td class="text-center ">100</td>
+                  <td class="text-center ">3.000.000</td>
+                </tr>
+                <tr>
+                  <td class="text-center ">2</td>
+                  <td class="text-center">Karyawan B</td>
+                  <td class="text-center ">90</td>
+                  <td class="text-center ">2.500.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="text-muted">Menampilkan 1 sampai 2 dari 2 entri</div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary" disabled>
+                Sebelumnya
+              </button>
+              <button class="btn text-white" style="background-color: #77b5fb">
+                1
+              </button>
+              <button class="btn btn-outline-secondary">Selanjutnya</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/responsive.js"></script>
+</body>
+
+</html>

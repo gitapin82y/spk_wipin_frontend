@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Manage - Riwayat Penilaian</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+      /* Custom table header style */
+      .table-header-blue {
+        background-color: #77b5fb !important;
+      }
+      .table-header-blue th {
+        color: white !important;
+        background-color: transparent !important;
+        border-color: #77b5fb !important;
+      }
+      /* Profile info style */
+      .profile-info {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .profile-info p {
+        margin-bottom: 8px;
+      }
+      .profile-info strong {
+        display: inline-block;
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar (Unchanged) -->
+    <aside class="sidebar">
+      <header class="logo-container">
+        <i class="fas fa-cube" aria-hidden="true"></i>
+        <span class="logo-text">Pro Manage</span>
+      </header>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="ranking-karyawan.html" class="nav-link">
+              <i class="fas fa-trophy" aria-hidden="true"></i>
+              <span>Ranking Karyawan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="panduan-poin-karyawan.html" class="nav-link ">
+              <i class="fas fa-book" aria-hidden="true"></i>
+              <span>Panduan Poin</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main>
+      <!-- Top Navigation Bar (Unchanged) -->
+      <header class="topbar">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </div>
+          <nav class="dropdown" aria-label="User Menu">
+            <div class="dropdown-trigger">
+              <span class="user-name">Admin</span>
+              <button
+                class="dropdown-btn"
+                aria-expanded="false"
+                aria-label="Open user menu"
+              >
+                <i
+                  class="fas fa-chevron-down dropdown-icon"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+            <div class="dropdown-content" role="menu">
+              <a href="#profile" role="menuitem"
+                ><i class="fas fa-user-circle" aria-hidden="true"></i>
+                Profile</a
+              >
+              <a href="login.html" role="menuitem"
+                ><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                Logout</a
+              >
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content - Changed to match your image -->
+      <div class="main-content">
+        <section class="dashboard-content">
+          <div class="container-fluid p-4 bg-white rounded">
+            <!-- Header with Title and Year -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="dashboard-title">Riwayat Penilaian</h1>
+              <div class="year-selector">
+                <select class="form-select" id="yearSelector">
+                  <option selected>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Profile Information in Grid Layout -->
+            <div class="employee-info-section mb-4">
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Nama</div>
+                    <div class="employee-info-value">: Dihan</div>
+                  </div>
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Posisi</div>
+                    <div class="employee-info-value">: Web Developer</div>
+                  </div>
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Email</div>
+                    <div class="employee-info-value">: dihan@mail.com</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Telepon</div>
+                    <div class="employee-info-value">: 0812345678</div>
+                  </div>
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Gender</div>
+                    <div class="employee-info-value">: Laki-laki</div>
+                  </div>
+                  <div class="employee-info-row">
+                    <div class="employee-info-label">Alamat</div>
+                    <div class="employee-info-value">: Surabaya</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Table Controls -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center">
+                <span>Tampilkan</span>
+                <select class="form-select mx-2" style="width: 70px">
+                  <option selected>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
+                <span>entri</span>
+                <button class="btn ms-2">
+                  <i class="fas fa-filter"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Table Content -->
+            <div class="table-responsive">
+              <table class="table mb-3">
+                <thead class="table-header-blue">
+                  <tr>
+                    <th class="rounded-top-start rounded-bottom-start">Nama Proyek <i class="fas fa-sort"></i></th>
+                    <th class=" text-center">Tanggal</th>
+                    <th class="text-center">Durasi Proyek</th>
+                    <th class="text-center">Kepuasan Pelanggan</th>
+                    <th class="text-center">Kualitas Proyek</th>
+                    <th class="text-center">Ketepatan Laporan & Dok</th>
+                    <th class="text-center rounded-top-end rounded-bottom-end">Inisiatif & Problem Solving</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Website Company Profile PT. ABC</td>
+                    <td class="text-center">11/11/2024</td>
+                    <td class="text-center">4</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">4</td>
+                    <td class="text-center">3</td>
+                  </tr>
+                  <tr>
+                    <td>Website Landing Page PT. XYZ</td>
+                    <td class="text-center">01/11/2024</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <div class="text-muted">
+                Menampilkan 1 sampai 1 dari 1 entri
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-secondary" disabled>Sebelumnya</button>
+                <button class="btn text-white" style="background-color: #77b5fb">1</button>
+                <button class="btn btn-outline-secondary">Selanjutnya</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/responsive.js"></script>
+  </body>
+</html>

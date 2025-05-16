@@ -1,0 +1,361 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Manage - panduan-poin-karyawan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+      /* Custom table header style */
+      .table-header-blue {
+        background-color: #77b5fb !important;
+      }
+
+      .table-header-blue th {
+        color: white !important;
+        background-color: transparent !important;
+        border-color: #77b5fb !important;
+      }
+
+      /* PDF Viewer Styles */
+      .pdf-container {
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+      }
+
+      .pdf-content {
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        min-height: 600px;
+      }
+
+      .table th,
+      .table td {
+        padding: 0.5rem;
+      }
+
+      .btn-dark {
+        background-color: #343a40;
+        border: none;
+      }
+
+      .btn-dark:hover {
+        background-color: #23272b;
+      }
+
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f0f0f0;
+      }
+
+      .pdf-container {
+        background: white;
+        margin: 20px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .pdf-header {
+        background: #3498db;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        position: relative;
+        height: 50px;
+      }
+
+      .pdf-title {
+        flex: 1;
+      }
+
+      .pdf-toolbar {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .zoom-control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2c3e50;
+        padding: 4px 10px;
+        border-radius: 6px;
+        gap: 10px;
+      }
+
+      .zoom-control button {
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      #zoom-level {
+        background-color: #111;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      #download-btn {
+        position: absolute;
+        right: 20px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        /* Membesarkan padding */
+        cursor: pointer;
+        border-radius: 6px;
+        /* Membesarkan border-radius */
+        font-size: 20px;
+        /* Membesarkan font-size */
+      }
+
+
+      #pdf-render {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .pdf-header {
+          background: #3498db;
+          color: white;
+          padding: 10px 20px;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          position: relative;
+          height: 40px;
+        }
+
+        .pdf-title {
+          font-size: 10px;
+          /* Lebih kecil dari sebelumnya (16px -> 14px) */
+        }
+
+        .zoom-control button {
+          padding: 2px 5px;
+          font-size: 10px;
+          /* Lebih kecil dari sebelumnya (12px -> 10px) */
+        }
+
+        #zoom-level {
+          font-size: 10px;
+          padding: 2px 5px;
+          /* Mengecilkan ukuran & padding zoom-level */
+        }
+
+        #download-btn {
+          padding: 3px 8px;
+          font-size: 14px;
+          /* Ukuran font dan padding lebih kecil dari sebelumnya */
+        }
+      }
+
+      @media (max-width: 400px) {
+        .pdf-header {
+          background: #3498db;
+          color: white;
+          padding: 10px 20px;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          position: relative;
+          height: 30px;
+        }
+
+        .pdf-title {
+          font-size: 8px;
+        }
+
+        .zoom-control {
+          padding: 2px 4px;
+          gap: 4px;
+        }
+
+        .zoom-control button {
+          font-size: 10px;
+          padding: 2px 4px;
+        }
+
+        #zoom-level {
+          font-size: 10px;
+          padding: 2px 4px;
+        }
+
+        #download-btn {
+          font-size: 14px;
+          padding: 1px 6px;
+          right: 8px;
+          /* geser lebih ke dalam */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <header class="logo-container">
+        <i class="fas fa-cube" aria-hidden="true"></i>
+        <span class="logo-text">Pro Manage</span>
+      </header>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="ranking-karyawan.html" class="nav-link active">
+              <i class="fas fa-trophy" aria-hidden="true"></i>
+              <span>Ranking Karyawan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="panduan-poin-karyawan.html" class="nav-link">
+              <i class="fas fa-book" aria-hidden="true"></i>
+              <span>Panduan Poin</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main>
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </div>
+          <nav class="dropdown" aria-label="User Menu">
+            <div class="dropdown-trigger">
+              <span class="user-name">Admin</span>
+              <button class="dropdown-btn" aria-expanded="false" aria-label="Open user menu">
+                <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dropdown-content" role="menu">
+              <a href="#profile" role="menuitem"><i class="fas fa-user-circle" aria-hidden="true"></i>
+                Profile</a>
+              <a href="login.html" role="menuitem"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                Logout</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="dashboard-content">
+          <div class="container-fluid p-4 bg-white rounded">
+            <h1 class="dashboard-title mb-3">Hasil Akhir</h1>
+
+            <!-- PDF Viewer Container -->
+            <div class="pdf-container rounded-top-start rounded-bottom-start rounded-top-end rounded-bottom-end">
+              <!-- PDF Header/Toolbar -->
+              <div class="pdf-header rounded-top-start rounded-bottom-start rounded-top-end rounded-bottom-end">
+                <span class="pdf-title">Kriteria Poin 2025</span>
+
+                <div class="pdf-toolbar">
+                  <div class="zoom-control">
+                    <button id="zoom-out">-</button>
+                    <span id="zoom-level">170%</span>
+                    <button id="zoom-in">+</button>
+                  </div>
+                </div>
+
+                <button id="download-btn">⭳</button>
+              </div>
+
+
+
+              <!-- PDF Canvas -->
+              <canvas id="pdf-render"></canvas>
+            </div>
+
+          </div>
+      </div>
+      </div>
+      </div>
+      </section>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+      <script src="js/script.js"></script>
+      <script src="js/responsive.js"></script>
+      <script>
+        const url = 'Kriteria_Point_2025.pdf'; // Path PDF
+
+        let pdfDoc = null,
+          pageNum = 1,
+          scale = 1.7,
+          canvas = document.getElementById('pdf-render'),
+          ctx = canvas.getContext('2d');
+
+        const renderPage = (num) => {
+          pdfDoc.getPage(num).then(page => {
+            const viewport = page.getViewport({
+              scale: scale
+            });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+              canvasContext: ctx,
+              viewport: viewport
+            };
+            page.render(renderContext);
+          });
+        };
+
+        pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+          pdfDoc = pdfDoc_;
+          renderPage(pageNum);
+        });
+
+        // Zoom in
+        document.getElementById('zoom-in').addEventListener('click', () => {
+          if (scale < 2.0) {
+            scale += 0.1;
+            document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+            renderPage(pageNum);
+          }
+        });
+
+        // Zoom out
+        document.getElementById('zoom-out').addEventListener('click', () => {
+          if (scale > 0.5) {
+            scale -= 0.1;
+            document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+            renderPage(pageNum);
+          }
+        });
+
+        // Download
+        document.getElementById('download-btn').addEventListener('click', () => {
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'Kriteria_Point_2025.pdf';
+          link.click();
+        });
+      </script>
+  </body>
+
+  </html>
